@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black">
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/screen"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="6dp"
+                android:background="@color/white"
+                android:textSize="140dp"></TextView>
+        </LinearLayout>
+
+        <!--primera fila-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="0"
+                android:textSize="40sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="HardcodedText"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/buttonIgual"
+                android:layout_width="306dp"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                android:backgroundTint="#292B2A"
+                android:text="="
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+        </LinearLayout>
+
+        <!--segunda fila-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/segundaFila">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="1"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="2"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="3"
+                android:textSize="40dp"
+                android:layout_margin="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+
+            <Button
+                android:id="@+id/buttonSum"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#EABD37"
+                android:text="+"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+        </LinearLayout>
+        <!--tercera fila-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="4"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="5"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="6"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/buttonRest"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#EABD37"
+                android:text="-"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+        </LinearLayout>
+        <!--cuarta fila-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="7"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="8"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#292B2A"
+                android:text="9"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+            <Button
+                android:id="@+id/buttonMult"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#EABD37"
+                android:text="*"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                android:layout_margin="6dp"></Button>
+
+        </LinearLayout>
+
+        <!--quinta fila-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/CE"
+                android:layout_width="292dp"
+                android:layout_height="82dp"
+                android:layout_margin="6dp"
+                android:backgroundTint="#292B2A"
+                android:text="CE"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+
+            <Button
+                android:id="@+id/buttonDiv"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="6dp"
+                android:backgroundTint="#EABD37"
+                android:text="/"
+                android:textSize="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
