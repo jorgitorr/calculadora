@@ -1,8 +1,7 @@
 package com.jorgearceruiz97.calculadora
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -12,13 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private val botones = ArrayList<Button>()
+    private var calculo = Calculo()
+    private lateinit var pantalla : TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        
-        var pantalla : TextView = findViewById(R.id.screen)
-        //agrega botones
+    /**
+     * inicializa los botones añadiendolos al arraylist
+     */
+    private fun inicializarBotones(){
         botones.add(findViewById(R.id.button0))
         botones.add(findViewById(R.id.button1))
         botones.add(findViewById(R.id.button2))
@@ -36,107 +35,67 @@ class MainActivity : AppCompatActivity() {
         botones.add(findViewById(R.id.buttonDiv))
         botones.add(findViewById(R.id.buttonIgual))
 
+    }
 
-        var valor1 = "";
-        var valor2 = "";
-        var tipo = "";
+    private fun vaciarPantalla(){
+        pantalla.text = ""
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        pantalla = findViewById(R.id.screen)
+
+        inicializarBotones()
+
+        var operacionActual = -1
+
         for(num in botones){
-            num.setOnClickListener(View.OnClickListener {
-                when(num.id){
-                    R.id.button0 ->{
-                        pantalla.setText(pantalla.text.toString()+"0")
+            num.setOnClickListener {
+                when (num.id) {
+                    in R.id.button0..R.id.button9 -> {
+                        val numero = num.id - R.id.button0
+                        pantalla.text = pantalla.text.toString() + numero
                     }
-                    R.id.button1 ->{
-                        pantalla.setText(pantalla.text.toString()+"1")
-                    }
-                    R.id.button2 ->{
-                        pantalla.setText(pantalla.text.toString()+"2")
-                    }
-                    R.id.button3 ->{
-                        pantalla.setText(pantalla.text.toString()+"3")
-                    }
-                    R.id.button4 ->{
-                        pantalla.setText(pantalla.text.toString()+"4")
-                    }
-                    R.id.button5 ->{
-                        pantalla.setText(pantalla.text.toString()+"5")
-                    }
-                    R.id.button6 ->{
-                        pantalla.setText(pantalla.text.toString()+"6")
-                    }
-                    R.id.button7 ->{
-                        pantalla.setText(pantalla.text.toString()+"7")
-                    }
-                    R.id.button8 ->{
-                        pantalla.setText(pantalla.text.toString()+"8")
-                    }
-                    R.id.button9 ->{
-                        pantalla.setText(pantalla.text.toString()+"9")
-                    }
+
                     R.id.CE -> {
-                        pantalla.text = "";
+                        vaciarPantalla()
+                        calculo.resetear()
                     }
-                    R.id.buttonSum ->{
-                        if(valor1=="")
-                            valor1 = pantalla.text.toString();
-                        else {
-                            valor2 = pantalla.text.toString();
-                            R.id.buttonIgual
+
+                    R.id.buttonSum, R.id.buttonRest, R.id.buttonMult, R.id.buttonDiv -> {
+                        // Actualizar la operación actual
+                        when (num.id) {
+                            R.id.buttonSum -> operacionActual = 0
+                            R.id.buttonRest -> operacionActual = 1
+                            R.id.buttonMult -> operacionActual = 2
+                            R.id.buttonDiv -> operacionActual = 3
                         }
 
-                        tipo = "+";
-                        pantalla.text = "";
+                        calculo.establecerNumero(pantalla.text.toString().toInt())
+                        calculo.establecerOperacion(operacionActual)
+                        vaciarPantalla()
                     }
-                    R.id.buttonRest ->{
-                        valor1 = pantalla.text.toString();
-                        tipo = "-";
-                        pantalla.text = "";
-                    }
-                    R.id.buttonMult ->{
-                        valor1 = pantalla.text.toString();
-                        tipo = "*";
-                        pantalla.text = "";
-                    }
-                    R.id.buttonDiv ->{
-                        valor1 = pantalla.text.toString();
-                        tipo = "/";
-                        pantalla.text = "";
-                    }
-                    R.id.buttonIgual ->{
-                        if(tipo!="" && valor1!=""){
-                            var resultado = 0
-                            valor2 = pantalla.text.toString()
 
-                            when(tipo){
-                                "+" ->{
-                                    resultado = Calculo.suma(valor1.toInt(),valor2.toInt())
-                                }
-                                "-" ->{
-                                    resultado = Calculo.resta(valor1.toInt(),valor2.toInt())
-                                }
-                                "*" ->{
-                                    resultado = Calculo.mult(valor1.toInt(),valor2.toInt())
-                                }
-                                "/" ->{
-                                    resultado = Calculo.div(valor1.toInt(),valor2.toInt())
-                                }
-                            }
-                            valor1 = "";
-                            valor2 = "";
-                            pantalla.setText(resultado.toString())
-                        }else{
-                            Toast.makeText(applicationContext, "Introduce algún número", Toast.LENGTH_SHORT).show()
+                    R.id.buttonIgual -> {
+                        if (calculo.num1Temp.isEmpty() && calculo.num2Temp.isEmpty())
+                            Toast.makeText(
+                                applicationContext,
+                                "Introduce algún número",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        else {
+                            calculo.establecerNumero(pantalla.text.toString().toInt())
+                            calculo.calcular()
+                            pantalla.text = calculo.obtenerResultado().toString()
+                            calculo.resetear()
                         }
                     }
                 }
-            })
+            }
         }
 
-        //cambia el tamanio del texto de la pantalla cuando la longuitud es mayor
-        if(pantalla.text.length>4){
-            pantalla.textSize = 20F;
-        }else{
-            pantalla.textSize = 80F;
-        }
     }
 }
