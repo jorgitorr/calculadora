@@ -9,7 +9,7 @@ class Calculo {
     private var primerNum = true // true -> esperando num1 / false -> esperando num2
     var num1Temp = ""
     var num2Temp = ""
-    private var numCalculos = 0
+    var numCalculos = 0
 
 
     /**

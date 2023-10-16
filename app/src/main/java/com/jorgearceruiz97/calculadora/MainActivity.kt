@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val botones = ArrayList<Button>()
     private var calculo = Calculo()
     private lateinit var pantalla : TextView
+    private var HayOperacion = false
 
     /**
      * inicializa los botones añadiendolos al arraylist
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.CE -> {
                         vaciarPantalla()
                         calculo.resetear()
+                        HayOperacion = false
                     }
 
                     R.id.buttonSum, R.id.buttonRest, R.id.buttonMult, R.id.buttonDiv -> {
@@ -74,16 +76,19 @@ class MainActivity : AppCompatActivity() {
                             R.id.buttonDiv -> operacionActual = 3
                         }
 
-                        calculo.establecerNumero(pantalla.text.toString().toInt())
+                        if(!HayOperacion){
+                            calculo.establecerNumero(pantalla.text.toString().toInt())
+                            vaciarPantalla()
+                        }
                         calculo.establecerOperacion(operacionActual)
-                        vaciarPantalla()
+                        HayOperacion = true // true -> ha realizado una operacion / false -> no tiene operacion almacenada
                     }
 
                     R.id.buttonIgual -> {
                         if (calculo.num1Temp.isEmpty() && calculo.num2Temp.isEmpty())
                             Toast.makeText(
                                 applicationContext,
-                                "Introduce algún número",
+                                "Debe introducir dos números y una operación",
                                 Toast.LENGTH_SHORT
                             ).show()
                         else {
@@ -91,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                             calculo.calcular()
                             pantalla.text = calculo.obtenerResultado().toString()
                             calculo.resetear()
+                            HayOperacion = false // false -> no tiene ninguna operacion almacenada
                         }
                     }
                 }
