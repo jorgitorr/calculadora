@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var hayOperacion = false
 
     /**
-     * inicializa los botones añadiendolos al arraylist
+     * añade botones a la lista
      */
     private fun inicializarBotones(){
         botones.add(findViewById(R.id.button0))
@@ -35,9 +35,11 @@ class MainActivity : AppCompatActivity() {
         botones.add(findViewById(R.id.buttonMult))
         botones.add(findViewById(R.id.buttonDiv))
         botones.add(findViewById(R.id.buttonIgual))
-
     }
 
+    /**
+     * vacia la pantalla eliminando el contenido que tenga
+     */
     private fun vaciarPantalla(){
         pantalla.text = ""
     }
@@ -51,24 +53,24 @@ class MainActivity : AppCompatActivity() {
 
         inicializarBotones()
 
-        var operacionActual = -1
+        var operacionActual = -1 //operacion que va a hacer el usuario (suma, resta, multiplicacion, division)
 
         for(num in botones){
             num.setOnClickListener {
                 when (num.id) {
-                    in R.id.button0..R.id.button9 -> {
+                    in R.id.button0..R.id.button9 -> {//recorre del boton 0 al 9
                         val numero = num.id - R.id.button0
-                        pantalla.text = pantalla.text.toString() + numero
+                        pantalla.text = pantalla.text.toString() + numero//añade a la cadena actual en pantalla el boton(numero) seleccionado
                     }
 
-                    R.id.CE -> {
+                    R.id.CE -> {//boton CE
                         vaciarPantalla()
                         calculo.resetear()
                         hayOperacion = false
                     }
 
                     R.id.buttonSum, R.id.buttonRest, R.id.buttonMult, R.id.buttonDiv -> {
-                        // Actualizar la operación actual
+                        // Recorre los botones de operaciones y actualiza la operación actual
                         when (num.id) {
                             R.id.buttonSum -> operacionActual = 0
                             R.id.buttonRest -> operacionActual = 1

@@ -47,7 +47,8 @@ class Calculo {
     }
 
     /**
-     * establece numero temporal
+     * establece numero temporal, si el primerNum ha sido introducido se modificara el segundo numTemporal
+     * @param numero que se va a añadir como numero temporal
      */
     fun establecerNumero(numero: Int) {
         if (primerNum) {
@@ -60,6 +61,7 @@ class Calculo {
     /**
      * establece la operacion, cambia el primer num a false ya que se prevee que una vez
      * se introduzca una operación el siguiente num será el num2
+     * @param op equivale a la operacion que va a realizar el usuario
      */
     fun establecerOperacion(op: Int) {
         operacion = op
@@ -88,6 +90,7 @@ class Calculo {
 
     /**
      * obtiene el resultado
+     * @return resultado que se obtiene al realizar una operación
      */
     fun obtenerResultado(): Int {
         return resultado
