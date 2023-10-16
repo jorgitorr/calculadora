@@ -26,7 +26,7 @@
                 android:layout_height="200dp"
                 android:layout_margin="6dp"
                 android:background="@color/white"
-                android:textSize="140dp"></TextView>
+                android:textSize="140sp" />
         </LinearLayout>
 
         <!--primera fila-->
@@ -44,7 +44,8 @@
                 android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="HardcodedText"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/buttonIgual"
@@ -53,10 +54,11 @@
                 android:layout_margin="6dp"
                 android:backgroundTint="#292B2A"
                 android:textColor="@color/white"
-                android:text="="
-                android:textSize="40dp"
+                android:text="@string/igual"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                style="?android:attr/buttonBarButtonStyle" />
         </LinearLayout>
 
         <!--segunda fila-->
@@ -70,42 +72,46 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="1"
-                android:textSize="40dp"
+                android:text="@string/_1"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="2"
-                android:textSize="40dp"
+                android:text="@string/_2"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="3"
-                android:textSize="40dp"
+                android:text="@string/_3"
+                android:textSize="40sp"
                 android:layout_margin="6dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/buttonSum"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="#EABD37"
-                android:text="+"
-                android:textSize="40dp"
+                android:text="@string/mas"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
         </LinearLayout>
         <!--tercera fila-->
@@ -117,44 +123,48 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="4"
-                android:textSize="40dp"
+                android:text="@string/_4"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="5"
-                android:textSize="40dp"
+                android:text="@string/_5"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="6"
-                android:textSize="40dp"
+                android:text="@string/_6"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/buttonRest"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="#EABD37"
-                android:text="-"
-                android:textSize="40dp"
+                android:text="@string/barra"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
         </LinearLayout>
         <!--cuarta fila-->
         <LinearLayout
@@ -165,44 +175,48 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="7"
-                android:textSize="40dp"
+                android:text="@string/_7"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button8"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="8"
-                android:textSize="40dp"
+                android:text="@string/_8"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="@color/white"
-                android:text="9"
-                android:textSize="40dp"
+                android:text="@string/_9"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/buttonMult"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:backgroundTint="#EABD37"
-                android:text="*"
-                android:textSize="40dp"
+                android:text="@string/estrella"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout"
-                android:layout_margin="6dp"></Button>
+                android:layout_margin="6dp"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
         </LinearLayout>
 
@@ -218,10 +232,11 @@
                 android:layout_margin="6dp"
                 android:backgroundTint="#292B2A"
                 android:textColor="@color/white"
-                android:text="CE"
-                android:textSize="40dp"
+                android:text="@string/ce"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
             <Button
                 android:id="@+id/buttonDiv"
@@ -229,10 +244,11 @@
                 android:layout_height="90dp"
                 android:layout_margin="6dp"
                 android:backgroundTint="#EABD37"
-                android:text="/"
-                android:textSize="40dp"
+                android:text="@string/barraInclinada"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout"></Button>
+                app:layout_constraintTop_toBottomOf="@id/layout"
+                style="?android:attr/buttonBarButtonStyle"></Button>
 
         </LinearLayout>
 

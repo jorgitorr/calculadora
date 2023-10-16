@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val botones = ArrayList<Button>()
     private var calculo = Calculo()
     private lateinit var pantalla : TextView
-    private var HayOperacion = false
+    private var hayOperacion = false
 
     /**
      * inicializa los botones añadiendolos al arraylist
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.CE -> {
                         vaciarPantalla()
                         calculo.resetear()
-                        HayOperacion = false
+                        hayOperacion = false
                     }
 
                     R.id.buttonSum, R.id.buttonRest, R.id.buttonMult, R.id.buttonDiv -> {
@@ -76,12 +76,12 @@ class MainActivity : AppCompatActivity() {
                             R.id.buttonDiv -> operacionActual = 3
                         }
 
-                        if(!HayOperacion){
+                        if(!hayOperacion){
                             calculo.establecerNumero(pantalla.text.toString().toInt())
                             vaciarPantalla()
                         }
                         calculo.establecerOperacion(operacionActual)
-                        HayOperacion = true // true -> ha realizado una operacion / false -> no tiene operacion almacenada
+                        hayOperacion = true // true -> ha realizado una operacion / false -> no tiene operacion almacenada
                     }
 
                     R.id.buttonIgual -> {
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                             calculo.calcular()
                             pantalla.text = calculo.obtenerResultado().toString()
                             calculo.resetear()
-                            HayOperacion = false // false -> no tiene ninguna operacion almacenada
+                            hayOperacion = false // false -> no tiene ninguna operacion almacenada
                         }
                     }
                 }
